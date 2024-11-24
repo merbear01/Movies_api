@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie.title }}</title>
+    <link rel="stylesheet" href="{% static 'movies/styles.css' %}">
+
+</head>
+<body>
+    <h1>{{ movie.title }}</h1>
+    <p><strong>Year:</strong> {{ movie.year }}</p>
+    <p><strong>Genre:</strong> {{ movie.genre }}</p>
+    <p><strong>Director:</strong> {{ movie.director }}</p>
+    <p><strong>Description:</strong> {{ movie.description }}</p>
+    <a href="{% url 'movie_list' %}">Back to Movie List</a>
+    <script src="{% static 'movies/script.js' %}"></script>
+</body>
+</html>
