@@ -1,20 +1,54 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ movie.title }}</title>
-    <link rel="stylesheet" href="{% static 'movies/styles.css' %}">
-
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 800px;
+        }
+        h1 {
+            color: #007BFF;
+        }
+        .movie-details {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .back-link {
+            text-decoration: none;
+            color: #333;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>{{ movie.title }}</h1>
-    <p><strong>Year:</strong> {{ movie.year }}</p>
-    <p><strong>Genre:</strong> {{ movie.genre }}</p>
-    <p><strong>Director:</strong> {{ movie.director }}</p>
-    <p><strong>Description:</strong> {{ movie.description }}</p>
-    <a href="{% url 'movie_list' %}">Back to Movie List</a>
-    <script src="{% static 'movies/script.js' %}"></script>
+    <a href="{% url 'movie_list' %}" class="back-link">← Back to Movie List</a>
+    <div class="movie-details">
+        <h1>{{ movie.title }}</h1>
+        <p><strong>Overview:</strong> {{ movie.overview }}</p>
+        <p><strong>Release Date:</strong> {{ movie.release_date }}</p>
+        <p><strong>Popularity:</strong> {{ movie.popularity }}</p>
+        <p><strong>Vote Average:</strong> {{ movie.vote_average }}</p>
+        <p><strong>Vote Count:</strong> {{ movie.vote_count }}</p>
+        {% if movie.poster_path %}
+            <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}">
+        {% endif %}
+    </div>
 </body>
 </html>

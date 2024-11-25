@@ -15,11 +15,11 @@ def fetch_and_store_movies(start_page=1, end_page=5):
                 Movies.objects.get_or_create(
                     title=movie['title'],
                     overview=movie['overview'],
-                    year=movie['release_date'],
+                    release_date=movie['release_date'],
                     poster_path=movie['poster_path'],
-                    genre=movie['genre'],
-                    director=movie['director'],
-                    rating=movie['vote_average']
+                    popularity=movie['popularity'],
+                    vote_average=movie['vote_average'],
+                    vote_count=movie['vote_count']
                 )
             return f"Successfully populated {len(movies)} movies from page {page}."
         else:
