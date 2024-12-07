@@ -4,7 +4,7 @@ from django.db import models
 class Movies(models.Model):
     title = models.CharField(max_length=100, blank=True, default='')
     overview = models.TextField(blank=True, default='')
-    release_date = models.DateField(null=False, default='2000-01-01')
+    release_date = models.DateField(null=False, default='1994-09-23')
     poster_path = models.CharField(max_length=100, blank=True, default='')
     popularity = models.FloatField(default=0)
     vote_average = models.FloatField(default=0)

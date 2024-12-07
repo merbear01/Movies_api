@@ -1,0 +1,14 @@
+
+services:
+  web:
+    build:
+      context: .
+    env_file:
+      - .env  # Specify the .env file here
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/movieapi
+      - ./db.sqlite3:/movieapi/db.sqlite3  # Ensure SQLite database file persists
+    command: python manage.py runserver 0.0.0.0:8000
+
