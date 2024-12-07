@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .movie-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .movie-list li {
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .movie-list a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 18px;
+        }
+        .movie-list a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie List</h1>
+    <ul class="movie-list">
+        {% for movie in movies %}
+            <li>
+                <a href="{% url 'movie_detail' movie.id %}">{{ movie.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

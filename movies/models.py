@@ -3,14 +3,16 @@ from django.db import models
 # Create your models here.
 class Movies(models.Model):
     title = models.CharField(max_length=100, blank=True, default='')
-    year=models.IntegerField()
-    genre=models.CharField(max_length=100, blank=True, default='')
-    director=models.CharField(max_length=100, blank=True, default='')
-    rating=models.FloatField()
+    overview = models.TextField(blank=True, default='')
+    release_date = models.DateField(null=False, default='1994-09-23')
+    poster_path = models.CharField(max_length=100, blank=True, default='')
+    popularity = models.FloatField(default=0)
+    vote_average = models.FloatField(default=0)
+    vote_count = models.IntegerField(default=0)
 
     def __str__(self):
         return self.title
 
     class Meta:
-        ordering = ['rating']
+        ordering = ['title']
 
